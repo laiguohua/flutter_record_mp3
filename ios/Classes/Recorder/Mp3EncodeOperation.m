@@ -29,7 +29,7 @@ lame_t lame;
     
     // lame param init
     lame = lame_init();
-    lame_set_num_channels(lame, 2);
+    lame_set_num_channels(lame, 1);
     lame_set_in_samplerate(lame, 44100);
     lame_set_brate(lame, 128);
     lame_set_mode(lame, 1);
