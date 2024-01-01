@@ -8,7 +8,8 @@
 #import "Recorder.h"
 #import <AVFoundation/AVFoundation.h>
 
-static const int sampeleRate = 16000;
+// static const int sampeleRate = 16000;
+static const int sampeleRate = 44100;
 static const int bitsPerChannel = 16;
 
 @implementation Recorder
@@ -35,13 +36,15 @@ static const int bitsPerChannel = 16;
     _recordFormat.mSampleRate = sampeleRate;
     
      //设置通道数
-    _recordFormat.mChannelsPerFrame = 1;
+    // _recordFormat.mChannelsPerFrame = 1;
+    _recordFormat.mChannelsPerFrame = 2;
     
     //设置format
     _recordFormat.mFormatID = inFormatID;
     if (inFormatID == kAudioFormatLinearPCM){
         // if we want pcm, default to signed 16-bit little-endian
-        _recordFormat.mChannelsPerFrame = 1;
+        // _recordFormat.mChannelsPerFrame = 1;
+        _recordFormat.mChannelsPerFrame = 2;
         _recordFormat.mFormatFlags = kLinearPCMFormatFlagIsSignedInteger | kLinearPCMFormatFlagIsPacked;
         _recordFormat.mBitsPerChannel = bitsPerChannel;
         _recordFormat.mBytesPerPacket = _recordFormat.mBytesPerFrame = (_recordFormat.mBitsPerChannel / 8) * _recordFormat.mChannelsPerFrame;
