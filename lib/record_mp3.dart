@@ -61,11 +61,11 @@ class RecordMp3 {
   }
 
   ///stop record and export a record file
-  bool stop() {
+  Future<bool> stop() async {
     if (_status == RecordStatus.RECORDING || _status == RecordStatus.PAUSE) {
       _onRecordError = null;
       _status = RecordStatus.IDEL;
-      _channel.invokeMethod("stop");
+      await _channel.invokeMethod("stop");
       return true;
     }
     return false;

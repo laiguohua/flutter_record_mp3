@@ -76,6 +76,12 @@
 }
 
 - (void)stop {
+    __weak typeof(self) weakSelf = self;
+    encodeOperation.onRecordCompleBlock = ^{
+        if(weakSelf.onRecordCompleBlock){
+            weakSelf.onRecordCompleBlock();
+        }
+    };
     lastMp3File = nil;
     [recorder stopRecording];
     [self releaseQueue];

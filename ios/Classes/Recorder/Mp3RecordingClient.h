@@ -7,8 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Flutter/Flutter.h>
 #import "Recorder.h"
 #import "Mp3EncodeOperation.h"
+
 
 @interface Mp3RecordingClient : NSObject {
     Recorder *recorder;
@@ -20,6 +22,7 @@
 
 @property (nonatomic, strong) NSString *currentMp3File;
 @property (nonatomic, copy)  void (^onRecordError)(NSInteger);
+@property (nonatomic, copy) FlutterResult  onRecordCompleBlock;
 
 + (instancetype)sharedClient;
 
