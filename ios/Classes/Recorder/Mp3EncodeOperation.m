@@ -85,7 +85,8 @@ lame_t lame;
     [handle closeFile];
     lame_close(lame);
     if(self.onRecordCompleBlock){
-        self.onRecordCompleBlock();
+        NSLog(@"转码完成，执行结束录音");
+        self.onRecordCompleBlock(@(YES));
     }
 }
 

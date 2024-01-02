@@ -76,13 +76,7 @@
 }
 
 - (void)stop {
-    // __weak typeof(self) weakSelf = self;
-    // encodeOperation.onRecordCompleBlock = ^{
-    //     if(weakSelf.onRecordCompleBlock){
-    //         weakSelf.onRecordCompleBlock();
-    //     }
-    // };
-  
+    NSLog(@"执行结束录音");
     encodeOperation.onRecordCompleBlock = self.onRecordCompleBlock;
     lastMp3File = nil;
     [recorder stopRecording];

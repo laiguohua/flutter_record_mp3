@@ -38,8 +38,8 @@ public class SwiftRecordMp3Plugin: NSObject, FlutterPlugin {
         }
         
         if method == "stop" {
-            stopRecord();
             mp3client?.onRecordCompleBlock = result
+            stopRecord()
         }
         
         if method == "pause" {
