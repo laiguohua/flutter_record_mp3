@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Flutter/Flutter.h>
 
 @interface Mp3EncodeOperation : NSOperation
 
@@ -16,7 +17,7 @@
 @property (nonatomic, strong) NSString *currentMp3File;
 @property (nonatomic, copy)  void (^onRecordError)(NSInteger);
 
-@property (nonatomic, copy)  void (^onRecordCompleBlock)(void);
+@property (nonatomic, copy) FlutterResult  onRecordCompleBlock;
 
 
 
