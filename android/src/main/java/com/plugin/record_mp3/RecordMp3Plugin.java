@@ -24,6 +24,7 @@ public class RecordMp3Plugin implements MethodCallHandler, FlutterPlugin {
     private MethodChannel methodChannel;
     private MP3Recorder recorder;
     private RecordListener listener;
+    private Result recordCompleResult;
 
     /**
      * Plugin registration.
@@ -38,6 +39,7 @@ public class RecordMp3Plugin implements MethodCallHandler, FlutterPlugin {
     public void onMethodCall(MethodCall call, Result result) {
         switch (call.method) {
             case "start":
+                recordCompleResult = null;
                 String filePath = call.argument("path");
                 onStartRecord(filePath);
                 break;
@@ -48,6 +50,7 @@ public class RecordMp3Plugin implements MethodCallHandler, FlutterPlugin {
                 onResumeRecord();
                 break;
             case "stop":
+                recordCompleResult = result;
                 onStopRecord();
                 break;
         }
@@ -75,6 +78,7 @@ public class RecordMp3Plugin implements MethodCallHandler, FlutterPlugin {
             @Override
             public void onComplete() {
                 System.out.println("record complete");
+                recordCompleResult.success(true);
             }
 
             @Override
