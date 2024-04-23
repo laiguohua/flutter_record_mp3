@@ -17,8 +17,8 @@
 @property (nonatomic, strong) NSString *currentMp3File;
 @property (nonatomic, copy)  void (^onRecordError)(NSInteger);
 
+@property (nonatomic,assign) BOOL isCoverToMp3;
+
 @property (nonatomic, copy) FlutterResult  onRecordCompleBlock;
-
-
 
 @end

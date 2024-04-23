@@ -46,6 +46,18 @@ public class SwiftRecordMp3Plugin: NSObject, FlutterPlugin {
             pauseRecord()
         }
         
+        if method == "startConvertToMp3" {
+            let arguments = call.arguments as? Dictionary<String, Any> ?? nil
+            let path = arguments?["path"] as! String
+            mp3client?.currentMp3File = path
+            mp3client?.onRecordCompleBlock = result
+            mp3client?.startCoverToMp3()
+        }
+        
+        if method == "stopConvertToMp3" {
+            mp3client?.stopCoverToMp3()
+        }
+        
     
         
     }

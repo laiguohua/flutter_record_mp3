@@ -80,6 +80,16 @@ class RecordMp3 {
     }
     return false;
   }
+
+  //把其它音乐文件转成mp3文件
+  Future<String?> startConvertToMp3(String musicPath) {
+    return _channel.invokeMethod("startConvertToMp3", {"path": musicPath});
+  }
+
+  //停止转码
+  Future<void> stopConvertToMp3() {
+    return _channel.invokeMethod("stopConvertToMp3");
+  }
 }
 
 ///record status

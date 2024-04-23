@@ -31,5 +31,7 @@
 - (void)stop;//停止录音,并输出录音文件
 - (void)pause;
 - (void)releaseQueue;
+- (void)startCoverToMp3;
+- (void)stopCoverToMp3;
 
 @end

@@ -47,6 +47,19 @@
     }
 }
 
+- (void)startCoverToMp3{
+    [self releaseQueue];
+    [self deleteRecordFile];
+    [self createEncodeOperation];
+    encodeOperation.isCoverToMp3 = YES;
+    encodeOperation.onRecordCompleBlock = self.onRecordCompleBlock;
+    [opetaionQueue addOperation:encodeOperation];
+}
+
+- (void)stopCoverToMp3{
+    [self releaseQueue];
+}
+
 -(void)notifyRecordError: (NSInteger)code {
     if(_onRecordError != nil ) {
         _onRecordError(code);
